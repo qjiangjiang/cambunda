@@ -20,7 +20,7 @@
       <output id="Output_1" label="Close Case" name="close_case" typeRef="boolean" />
       <rule id="DecisionRule_14c7t6l">
         <inputEntry id="UnaryTests_1cgh3zu">
-          <text>"Ryanair","Easyjet"</text>
+          <text>"Ryanair","Easyjet","Ryanair"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0n7xjk8">
           <text>"DE"</text>
@@ -29,15 +29,15 @@
           <text>false</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0dlforg">
-          <text>false</text>
+          <text>true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_07c2pm8">
         <inputEntry id="UnaryTests_0hwubhu">
-          <text>-</text>
+          <text>"Test"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_10gpq8s">
-          <text>-</text>
+          <text>"UK"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1ez4dvc">
           <text>true</text>
@@ -57,7 +57,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1w1ryho">
-          <text>false</text>
+          <text></text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0ywbizb">
@@ -71,7 +71,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0qu7bgi">
-          <text>false</text>
+          <text></text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_00eluhv">
@@ -85,7 +85,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1vfihkh">
-          <text>false</text>
+          <text></text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1gwls9h">

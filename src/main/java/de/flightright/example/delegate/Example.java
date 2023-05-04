@@ -17,10 +17,13 @@ public class Example implements JavaDelegate {
         // TODO logic: call rest api to get boolean value back.
         Boolean result = true;
         execution.setVariable("payment_received", result);
+        LOGGER.warn("payment received {}",result);
         // TODO: call rest api/db to get poj string
         execution.setVariable("poj", "DE");
+        LOGGER.warn("poj {}","DE");
         //TODO: call airline api to get airline info
         //try-catch error handling
         execution.setVariable("airline", "Ryanair");
+        LOGGER.warn("airline {}","Ryanair");
     }
 }
