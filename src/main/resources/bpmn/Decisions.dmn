@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Decisions" name="Decisions" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.10.0">
+  <decision id="result_decision" name="result_decision">
+    <decisionTable id="decisionTable" hitPolicy="FIRST">
+      <input id="input1" label="Airline" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="string" expressionLanguage="feel">
+          <text>airline</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0rwlbk7" label="POJ" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0h5951a" typeRef="string">
+          <text>poj</text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="Result" name="close" typeRef="boolean" />
+      <rule id="row-129502239-1">
+        <description></description>
+        <inputEntry id="UnaryTests_0e47zyl">
+          <text>"Easyjet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1132erh">
+          <text>"DE"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wv4x30">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-129502239-2">
+        <inputEntry id="UnaryTests_0iwabd6">
+          <text>"Air France"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10qbns7">
+          <text>"DE"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ysj59c">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-129502239-3">
+        <inputEntry id="UnaryTests_1nu2fxo">
+          <text>"Easyjet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b4mcpz">
+          <text>"FR"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1osqv9r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-129502239-4">
+        <description>open</description>
+        <inputEntry id="UnaryTests_0vux2zw">
+          <text>"Ryanair"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07v2n3t">
+          <text>"DE"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11v4xrs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-129502239-5">
+        <description>close</description>
+        <inputEntry id="UnaryTests_0p7gr7e">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zebpmx">
+          <text>"UK"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0maai06">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cuvzs5">
+        <inputEntry id="UnaryTests_16pe5k3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kwtaq9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k3qig4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_0lnw6sm">
+      <dmndi:DMNShape id="DMNShape_0h820uh" dmnElementRef="result_decision">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
