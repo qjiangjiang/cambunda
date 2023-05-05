@@ -5,39 +5,18 @@
     <bpmn:startEvent id="StartEvent_1" name="Case ID">
       <bpmn:outgoing>Flow_1dnc50j</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:serviceTask id="Payment_Received" name="Payment Received" camunda:delegateExpression="${Poj}">
-      <bpmn:extensionElements>
-        <camunda:inputOutput>
-          <camunda:outputParameter name="payment_received">true</camunda:outputParameter>
-        </camunda:inputOutput>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_192m870</bpmn:incoming>
-      <bpmn:outgoing>Flow_0p4a8rq</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:serviceTask id="Activity_049f0dv" name="PoJ of the Case" camunda:delegateExpression="${Poj}">
       <bpmn:extensionElements>
         <camunda:inputOutput>
-          <camunda:outputParameter name="poj">"DE"</camunda:outputParameter>
+          <camunda:outputParameter name="poj" />
+          <camunda:outputParameter name="airline" />
         </camunda:inputOutput>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0o75efx</bpmn:incoming>
       <bpmn:outgoing>Flow_1uco5r3</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Activity_1bm31yr" name="Airline of the Case" camunda:delegateExpression="${Airline}">
-      <bpmn:extensionElements>
-        <camunda:inputOutput>
-          <camunda:inputParameter name="Input_27vkupd" />
-          <camunda:inputParameter name="Input_2l4uu4v" />
-          <camunda:outputParameter name="airline">"Easyjet"</camunda:outputParameter>
-        </camunda:inputOutput>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0l3qf7m</bpmn:incoming>
-      <bpmn:outgoing>Flow_06og802</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:parallelGateway id="Gateway_1pcsx8h">
       <bpmn:incoming>Flow_1uco5r3</bpmn:incoming>
-      <bpmn:incoming>Flow_06og802</bpmn:incoming>
-      <bpmn:incoming>Flow_0p4a8rq</bpmn:incoming>
       <bpmn:outgoing>Flow_00gck8o</bpmn:outgoing>
     </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="Flow_1uco5r3" sourceRef="Activity_049f0dv" targetRef="Gateway_1pcsx8h" />
@@ -48,15 +27,9 @@
     </bpmn:businessRuleTask>
     <bpmn:parallelGateway id="Gateway_1yw81zu">
       <bpmn:incoming>Flow_1t3lpbc</bpmn:incoming>
-      <bpmn:outgoing>Flow_192m870</bpmn:outgoing>
       <bpmn:outgoing>Flow_0o75efx</bpmn:outgoing>
-      <bpmn:outgoing>Flow_0l3qf7m</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:sequenceFlow id="Flow_192m870" sourceRef="Gateway_1yw81zu" targetRef="Payment_Received" />
-    <bpmn:sequenceFlow id="Flow_06og802" sourceRef="Activity_1bm31yr" targetRef="Gateway_1pcsx8h" />
     <bpmn:sequenceFlow id="Flow_0o75efx" sourceRef="Gateway_1yw81zu" targetRef="Activity_049f0dv" />
-    <bpmn:sequenceFlow id="Flow_0p4a8rq" sourceRef="Payment_Received" targetRef="Gateway_1pcsx8h" />
-    <bpmn:sequenceFlow id="Flow_0l3qf7m" sourceRef="Gateway_1yw81zu" targetRef="Activity_1bm31yr" />
     <bpmn:userTask id="Activity_10jmgjl" name="User Task 1">
       <bpmn:incoming>Flow_1dnc50j</bpmn:incoming>
       <bpmn:outgoing>Flow_1t3lpbc</bpmn:outgoing>
@@ -81,7 +54,7 @@
     <bpmn:sequenceFlow id="Flow_1yzcfeu" sourceRef="Gateway_17n4mwy" targetRef="Activity_1o6e14o">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${close == false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_1ttw8ce" name="User Task 1">
+    <bpmn:userTask id="Activity_1ttw8ce" name="User Task 2">
       <bpmn:incoming>Flow_00gck8o</bpmn:incoming>
       <bpmn:outgoing>Flow_03h17ye</bpmn:outgoing>
     </bpmn:userTask>
@@ -96,15 +69,8 @@
           <dc:Bounds x="160" y="242" width="40" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_10qx4h1" bpmnElement="Payment_Received">
-        <dc:Bounds x="640" y="177" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_00m7qo3_di" bpmnElement="Activity_049f0dv">
         <dc:Bounds x="640" y="300" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_16h518w_di" bpmnElement="Activity_1bm31yr">
-        <dc:Bounds x="640" y="440" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_16sfack_di" bpmnElement="Gateway_1pcsx8h">
         <dc:Bounds x="845" y="192" width="50" height="50" />
@@ -141,14 +107,6 @@
         <di:waypoint x="224" y="150" />
         <di:waypoint x="250" y="150" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_192m870_di" bpmnElement="Flow_192m870">
-        <di:waypoint x="535" y="217" />
-        <di:waypoint x="640" y="217" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0p4a8rq_di" bpmnElement="Flow_0p4a8rq">
-        <di:waypoint x="740" y="217" />
-        <di:waypoint x="845" y="217" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0o75efx_di" bpmnElement="Flow_0o75efx">
         <di:waypoint x="510" y="242" />
         <di:waypoint x="510" y="340" />
@@ -157,16 +115,6 @@
       <bpmndi:BPMNEdge id="Flow_1uco5r3_di" bpmnElement="Flow_1uco5r3">
         <di:waypoint x="740" y="340" />
         <di:waypoint x="870" y="340" />
-        <di:waypoint x="870" y="242" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0l3qf7m_di" bpmnElement="Flow_0l3qf7m">
-        <di:waypoint x="510" y="242" />
-        <di:waypoint x="510" y="480" />
-        <di:waypoint x="640" y="480" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_06og802_di" bpmnElement="Flow_06og802">
-        <di:waypoint x="740" y="480" />
-        <di:waypoint x="870" y="480" />
         <di:waypoint x="870" y="242" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1t3lpbc_di" bpmnElement="Flow_1t3lpbc">

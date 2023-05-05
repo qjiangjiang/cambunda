@@ -24,7 +24,7 @@ public class DMN extends ServletProcessApplication {
                 .putValue("airline", "Easyjet")
                 .putValue("poj", "DE");
 
-        DmnDecisionTableResult dishDecisionResult = decisionService.evaluateDecisionTableByKey("dish", variables);
+        DmnDecisionTableResult dishDecisionResult = decisionService.evaluateDecisionTableByKey("result_decision", variables);
         String result = dishDecisionResult.getSingleEntry();
 
         LOGGER.warn("{} result===",result);
