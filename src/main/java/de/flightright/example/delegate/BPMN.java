@@ -16,28 +16,27 @@ import javax.inject.Named;
 
 @Named("Poj")
 @Component("Poj")
-public class Poj implements JavaDelegate {
+public class BPMN implements JavaDelegate {
     @Autowired
     ProcessEngine processEngine;
-    private static final Logger LOGGER = LoggerFactory.getLogger(Poj.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BPMN.class);
     @Override
     public void execute(DelegateExecution execution) throws Exception {
         // TODO logic: call rest api to get boolean value back.
         execution.setVariable("poj","DE");
         execution.setVariable("airline","Easyjet");
-        LOGGER.warn("===start poj class===");
+
         LOGGER.warn("aireline received {}",execution.getVariable("airline"));
         LOGGER.warn("poj received {}",execution.getVariable("poj"));
-        LOGGER.warn("===end in poj class===");
 
         VariableMap variables = Variables.createVariables()
-                .putValue("airline", "Easyjet")
-                .putValue("poj", "DE");
+                .putValue("airline", execution.getVariable("airline"))
+                .putValue("poj", execution.getVariable("poj"));
 
         DecisionService decisionService = processEngine.getDecisionService();
         DmnDecisionTableResult dishDecisionResult = decisionService.evaluateDecisionTableByKey("result_decision", variables);
         Boolean result = dishDecisionResult.getSingleEntry();
-
-        LOGGER.warn("{} result===",result);
+        execution.setVariable("close_close",result);
+        LOGGER.warn("====result is {}===",result);
     }
 }

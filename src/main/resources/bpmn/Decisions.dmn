@@ -2,7 +2,7 @@
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Decisions" name="Decisions" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.10.0">
   <decision id="result_decision" name="result_decision">
     <decisionTable id="decisionTable" hitPolicy="FIRST">
-      <input id="input1" label="Airline" camunda:inputVariable="">
+      <input id="input1" camunda:inputVariable="">
         <inputExpression id="inputExpression1" typeRef="string" expressionLanguage="feel">
           <text>airline</text>
         </inputExpression>
